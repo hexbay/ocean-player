@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import {ref} from "@vue/reactivity";
+import { ref } from "vue";
 import request from "@/utils/request";
 import {setToken} from "@/utils/cookie";
 import { User, Lock } from '@element-plus/icons-vue'

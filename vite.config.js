@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename)
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd())
-  
   return {
     plugins: [vue()],
     resolve: {

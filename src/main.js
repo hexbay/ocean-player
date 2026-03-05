@@ -19,6 +19,7 @@ import {
     ElTooltip,
     ElEmpty,
     ElButton,
+    ElAlert,
     ElDialog,
     ElForm,
     ElFormItem,
@@ -51,6 +52,7 @@ import {
 } from 'element-plus';
 app.use(ElLoading);
 app.use(ElTooltip);
+app.component(ElAlert.name, ElAlert);
 app.component(ElTabs.name, ElTabs);
 app.component(ElTabPane.name, ElTabPane);
 app.component(ElAvatar.name, ElAvatar);

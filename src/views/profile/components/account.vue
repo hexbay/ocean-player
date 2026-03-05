@@ -11,7 +11,7 @@
 
 <script>
 import {mapGetters, useStore} from "vuex";
-import {reactive, ref} from "@vue/reactivity";
+import { reactive, ref } from "vue";
 import request from "../../../utils/request";
 import {ElMessage} from "element-plus";
 import store from "../../../store";
@@ -64,17 +64,41 @@ export default {
 </script>
 <style lang="scss" scoped>
 .form {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.92);
 
   :deep(.el-form-item__label) {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 600;
   }
+
   .el-input-group__prepend {
     border: none;
   }
+  :deep(.el-input__wrapper) {
+    background: linear-gradient(
+      180deg,
+      rgba(17, 25, 40, 0.55) 0%,
+      rgba(17, 25, 40, 0.35) 100%
+    );
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  :deep(.el-input__wrapper.is-focus) {
+    border-color: rgba(64, 158, 255, 0.55);
+    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.14);
+  }
+
   :deep(.el-input__inner) {
-    color: #fff;
-    border: none;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  :deep(.el-button--primary) {
+    border: 0;
+    background: linear-gradient(90deg, rgba(64, 158, 255, 0.95), rgba(108, 99, 255, 0.95));
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
   }
 }
 </style>

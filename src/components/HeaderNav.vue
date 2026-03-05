@@ -25,25 +25,25 @@
         <router-link v-if="!token" to="/login" class="nav-menu-item">
           登录
         </router-link>
-        <div v-else class="nav-user">
-          <div class="nav-user-avatar">
-            {{ username.charAt(0).toUpperCase() }}
-          </div>
-          <span>{{ username }}</span>
-          <el-dropdown @command="handleCommand">
+        <el-dropdown v-else trigger="click" @command="handleCommand">
+          <div class="nav-user">
+            <div class="nav-user-avatar">
+              {{ username.charAt(0).toUpperCase() }}
+            </div>
+            <span>{{ username }}</span>
             <span class="el-dropdown-link">
               <el-icon class="el-icon--right">
-                <arrow-down />
+                <ArrowDown />
               </el-icon>
             </span>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item command="profile">个人中心</el-dropdown-item>
-                <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-        </div>
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="profile">个人中心</el-dropdown-item>
+              <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
   </div>
@@ -82,6 +82,7 @@ export default {
           type: 'warning'
         }).then(() => {
           removeToken()
+          token.value = null
           router.push('/login')
         })
       } else if (command === 'profile') {
